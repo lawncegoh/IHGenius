@@ -1,42 +1,68 @@
 package orbital.milestone2;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.support.annotation.NonNull;
-import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView mTextMessage;
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
-                    return true;
-                case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
-                    return true;
-                case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
-                    return true;
-            }
-            return false;
-        }
-    };
+    DatabaseHelper db;
+    private EditText ID;
+    private EditText Password;
+    private Button Login;
+    private TextView Question;
+    private Button RegisterNow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        BottomNavigationView navView = findViewById(R.id.nav_view);
-        mTextMessage = findViewById(R.id.message);
-        navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        db = new DatabaseHelper(this);
+        ID = (EditText)findViewById(R.id.username);
+        Password = (EditText)findViewById(R.id.cpassword);
+        Question = (TextView)findViewById(R.id.question);
+        Login = (Button)findViewById(R.id.btnsignin);
+        RegisterNow = (Button)findViewById(R.id.btnreg);
+
+        Login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String user = ID.getText().toString();
+                String pass = Password.getText().toString();
+                Boolean checkies = db.checkReal(user, pass);
+                if(checkies==true) {
+                    Toast.makeText(getApplicationContext(), "Successfully logged in ", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Username or password is wrong", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        RegisterNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent;
+                intent = new Intent(MainActivity.this, Registration.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void validate(String username, String password) {
+        if(username.equals("") || password.equals("")) {
+            Toast.makeText(getApplicationContext(), "Fields are empty", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Intent intent = new Intent(MainActivity.this, HomePage.class);
+            startActivity(intent);
+        }
     }
 
 }
+
+
