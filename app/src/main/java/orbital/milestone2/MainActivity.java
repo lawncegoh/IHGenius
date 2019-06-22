@@ -27,19 +27,14 @@ public class MainActivity extends AppCompatActivity {
         Password = (EditText)findViewById(R.id.cpassword);
         Question = (TextView)findViewById(R.id.question);
         Login = (Button)findViewById(R.id.btnsignin);
-        RegisterNow = (Button)findViewById(R.id.btnreg);
+        RegisterNow = (Button)findViewById(R.id.btnbacktohome);
 
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String user = ID.getText().toString();
                 String pass = Password.getText().toString();
-                Boolean checkies = db.checkReal(user, pass);
-                if(checkies==true) {
-                    Toast.makeText(getApplicationContext(), "Successfully logged in ", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getApplicationContext(), "Username or password is wrong", Toast.LENGTH_SHORT).show();
-                }
+                validate(user,pass);
             }
         });
 
@@ -57,9 +52,13 @@ public class MainActivity extends AppCompatActivity {
         if(username.equals("") || password.equals("")) {
             Toast.makeText(getApplicationContext(), "Fields are empty", Toast.LENGTH_SHORT).show();
         }
-        else {
-            Intent intent = new Intent(MainActivity.this, HomePage.class);
-            startActivity(intent);
+        Boolean checkies = db.checkReal(username, password);
+        if(checkies==true) {
+            Intent intent2;
+            intent2 = new Intent(MainActivity.this, HomePage.class);
+            startActivity(intent2);
+        } else {
+            Toast.makeText(getApplicationContext(), "Username or password is wrong", Toast.LENGTH_SHORT).show();
         }
     }
 

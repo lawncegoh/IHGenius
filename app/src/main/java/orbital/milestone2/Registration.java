@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class Registration extends AppCompatActivity {
@@ -16,6 +15,7 @@ public class Registration extends AppCompatActivity {
     private EditText Password;
     private EditText cpassword;
     private Button RegisterNow;
+    private Button BackToHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +25,11 @@ public class Registration extends AppCompatActivity {
         ID = (EditText) findViewById(R.id.username);
         Password = (EditText) findViewById(R.id.password);
         cpassword = (EditText) findViewById(R.id.cpassword);
-        RegisterNow = (Button) findViewById(R.id.btnreg);
+        RegisterNow = (Button) findViewById(R.id.btnreg2);
+        BackToHome = (Button) findViewById(R.id.btnbacktohome);
 
         RegisterNow.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 String s1 = ID.getText().toString();
@@ -42,8 +44,8 @@ public class Registration extends AppCompatActivity {
                             Boolean insert = db.insert(s1, s2);
                             if (insert == true) {
                                 Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(Registration.this, HomePage.class);
-                                startActivity(intent);
+                            } else {
+                                Toast.makeText(getApplicationContext(), "An error has occurred", Toast.LENGTH_SHORT).show();
                             }
                         } else {
                             Toast.makeText(getApplicationContext(), "User Already Exists", Toast.LENGTH_SHORT).show();
@@ -53,5 +55,14 @@ public class Registration extends AppCompatActivity {
             }
         });
 
+        BackToHome.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent;
+                intent = new Intent(Registration.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
