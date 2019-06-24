@@ -50,8 +50,6 @@ public class Registration extends AppCompatActivity {
                         } else {
                             Toast.makeText(getApplicationContext(), "User Already Exists", Toast.LENGTH_SHORT).show();
                         }
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Length of Passwords Do Not Match", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
