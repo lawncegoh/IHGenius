@@ -10,8 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Homepage1"
-            android:label="@string/title_activity_homepage1"></activity>
+            android:name=".Homepage"
+            android:label="Homepage"></activity>
         <activity
             android:name=".Pref1"
             android:label="Pref1" />
@@ -19,8 +19,11 @@
             android:name=".Registration"
             android:label="Registration" />
         <activity
-            android:name=".Homepage"
-            android:label="Homepage" />
+            android:name=".Information"
+            android:label="Information" />
+        <activity
+            android:name=".Setting"
+            android:label="Setting" />
         <activity
             android:name=".MainActivity"
             android:label="IHGenius">
