@@ -4,26 +4,20 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/orbital_logo"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/orbital_logo"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Homepage1"
-            android:label="@string/title_activity_homepage1"></activity>
-        <activity
-            android:name=".Pref1"
-            android:label="Pref1" />
+            android:name=".HomePage"
+            android:label="@string/title_activity_home_page"/>
         <activity
             android:name=".Registration"
             android:label="Registration" />
         <activity
-            android:name=".Homepage"
-            android:label="Homepage" />
-        <activity
             android:name=".MainActivity"
-            android:label="IHGenius">
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
