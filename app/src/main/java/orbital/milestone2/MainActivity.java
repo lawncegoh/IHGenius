@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         Boolean checkies = db.checkReal(username, password);
         if(checkies==true) {
             Intent intent2;
-            intent2 = new Intent(MainActivity.this, HomePage.class);
+            intent2 = new Intent(MainActivity.this, Pref1.class);
             startActivity(intent2);
         } else {
             Toast.makeText(getApplicationContext(), "Username or password is wrong", Toast.LENGTH_SHORT).show();
