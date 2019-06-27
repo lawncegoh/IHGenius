@@ -30,7 +30,7 @@ public class Homepage extends AppCompatActivity {
                         startActivity(intent1);
                         break;
 
-                    case R.id.navigation_settings:
+                    case R.id.navigation_setting:
                         Intent intent2 = new Intent(Homepage.this, Setting.class);
                         startActivity(intent2);
                         break;

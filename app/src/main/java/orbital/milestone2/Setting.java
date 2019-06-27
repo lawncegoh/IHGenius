@@ -1,13 +1,23 @@
 package orbital.milestone2;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SwitchCompat;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Switch;
 
 public class Setting extends AppCompatActivity {
+
+    SwitchCompat switch_1, switch_2;
+
+    boolean stateSwitch1, stateSwitch2;
+
+    SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +39,7 @@ public class Setting extends AppCompatActivity {
                         startActivity(intent1);
                         break;
 
-                    case R.id.navigation_settings:
+                    case R.id.navigation_setting:
                         Intent intent2 = new Intent(Setting.this, Setting.class);
                         startActivity(intent2);
                         break;
@@ -38,6 +48,43 @@ public class Setting extends AppCompatActivity {
                 return false;
             }
         });
+
+        //switches
+
+        prefs = getSharedPreferences("PREFS", 0);
+        stateSwitch1 = prefs.getBoolean("switch1", false);
+        stateSwitch1 = prefs.getBoolean("switch2", false);
+
+        switch_1 = (SwitchCompat) findViewById(R.id.switch_1);
+        switch_2 = (SwitchCompat) findViewById(R.id.switch_2);
+
+        switch_1.setChecked(stateSwitch1);
+        switch_2.setChecked(stateSwitch2);
+
+        switch_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stateSwitch1 = !stateSwitch1;
+                switch_1.setChecked(stateSwitch1);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putBoolean("switch1", stateSwitch1);
+                editor.apply();
+            }
+        });
+
+        switch_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stateSwitch2 = !stateSwitch2;
+                switch_2.setChecked(stateSwitch2);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putBoolean("switch2", stateSwitch2);
+                editor.apply();
+            }
+        });
+
+
+
     }
 
 }
