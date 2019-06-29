@@ -28,16 +28,16 @@ public class Homepage extends AppCompatActivity {
         setContentView(R.layout.activity_homepage);
 
         HomeCollection.date_collection_arr=new ArrayList<HomeCollection>();
-        HomeCollection.date_collection_arr.add( new HomeCollection("2017-07-08" ,"Diwali","Holiday","this is holiday"));
-        HomeCollection.date_collection_arr.add( new HomeCollection("2017-07-08" ,"Holi","Holiday","this is holiday"));
-        HomeCollection.date_collection_arr.add( new HomeCollection("2017-07-08" ,"Statehood Day","Holiday","this is holiday"));
-        HomeCollection.date_collection_arr.add( new HomeCollection("2017-08-08" ,"Republic Unian","Holiday","this is holiday"));
-        HomeCollection.date_collection_arr.add( new HomeCollection("2017-07-09" ,"ABC","Holiday","this is holiday"));
-        HomeCollection.date_collection_arr.add( new HomeCollection("2017-06-15" ,"demo","Holiday","this is holiday"));
-        HomeCollection.date_collection_arr.add( new HomeCollection("2017-09-26" ,"weekly off","Holiday","this is holiday"));
-        HomeCollection.date_collection_arr.add( new HomeCollection("2018-01-08" ,"Events","Holiday","this is holiday"));
-        HomeCollection.date_collection_arr.add( new HomeCollection("2018-01-16" ,"Dasahara","Holiday","this is holiday"));
-        HomeCollection.date_collection_arr.add( new HomeCollection("2019-06-25" ,"Test","Holiday","this is holiday"));
+        HomeCollection.date_collection_arr.add( new HomeCollection("2019-07-13" ,"Floorball","KE7 vs TH","USC 1900"));
+        HomeCollection.date_collection_arr.add( new HomeCollection("2019-07-02" ,"Soccer","SH vs KR","Field 1800"));
+        HomeCollection.date_collection_arr.add( new HomeCollection("2019-07-03" ,"Basketball","EH vs KR","USC 1900"));
+        HomeCollection.date_collection_arr.add( new HomeCollection("2019-07-18" ,"Frisbee","EH vs RH","Field 1200"));
+        HomeCollection.date_collection_arr.add( new HomeCollection("2019-07-19" ,"Track","RH vs KE7","Field 1700"));
+        HomeCollection.date_collection_arr.add( new HomeCollection("2019-07-15" ,"Volleyball","SH vs PGP","MPSH 1300"));
+        HomeCollection.date_collection_arr.add( new HomeCollection("2019-07-26" ,"Netball","KR vs TH","SRC 1200"));
+        HomeCollection.date_collection_arr.add( new HomeCollection("2019-07-08" ,"Touch Rugby","TH vs PGP","Field 1400"));
+        HomeCollection.date_collection_arr.add( new HomeCollection("2019-07-16" ,"Sepak Takraw","SH vs TH","MPSH 1300"));
+
 
 
 
