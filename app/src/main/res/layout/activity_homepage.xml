@@ -30,12 +30,14 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <LinearLayout
+        android:id="@+id/ll_calendar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_"
         android:layout_margin="4dp"
         android:background="#343434"
-        android:id="@+id/ll_calendar"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="@+id/relativeLayout"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/header"
@@ -44,11 +46,11 @@
             android:background="#ffffff"
             android:gravity="center"
             android:orientation="horizontal"
-            android:padding="10dp" >
+            android:padding="10dp">
 
             <FrameLayout
                 android:layout_width="45dp"
-                android:layout_height="45dp" >
+                android:layout_height="45dp">
 
                 <ImageButton
                     android:id="@+id/ib_prev"
@@ -63,7 +65,7 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" >
+                android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/tv_month"
@@ -74,12 +76,13 @@
                     android:textColor="#4b4a4a"
                     android:textSize="20dip"
                     android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tv_month"
-                    android:text="Tap on day to see its detail"
                     android:layout_centerHorizontal="true"
+                    android:text="Tap on day to see its detail"
                     android:textColor="#4b4a4a"
                     android:textSize="12dp"
                     android:textStyle="normal" />
@@ -87,7 +90,7 @@
 
             <FrameLayout
                 android:layout_width="45dp"
-                android:layout_height="45dp" >
+                android:layout_height="45dp">
 
                 <ImageButton
                     android:id="@+id/Ib_next"
@@ -103,11 +106,11 @@
             android:id="@+id/tableRow1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="5dp"
             android:background="#ffffff"
             android:paddingLeft="2dp"
+            android:paddingTop="6dp"
             android:paddingRight="2dp"
-            android:paddingTop="6dp" >
+            android:paddingBottom="5dp">
 
             <TextView
                 android:id="@+id/TextView06"
@@ -192,15 +195,23 @@
             android:numColumns="7"
             android:padding="2dp"
             android:stretchMode="columnWidth"
-            android:textAlignment="gravity" >
+            android:textAlignment="gravity">
 
         </GridView>
 
     </LinearLayout>
+
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:id="@+id/relativeLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_below="@+id/ll_calendar"
-        android:layout_height="match_parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
 
     </RelativeLayout>
