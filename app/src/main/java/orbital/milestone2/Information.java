@@ -2,16 +2,20 @@ package orbital.milestone2;
 
 import android.content.Intent;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 public class Information extends AppCompatActivity {
 
+    private Button Ranks;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Ranks = (Button) findViewById(R.id.rankings);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_information);
         BottomNavigationView navView = findViewById(R.id.nav_view);
@@ -40,5 +44,7 @@ public class Information extends AppCompatActivity {
             }
         });
     }
+
+
 
 }
