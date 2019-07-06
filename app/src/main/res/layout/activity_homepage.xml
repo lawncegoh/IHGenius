@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
@@ -34,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="4dp"
-        android:background="#343434"
+        android:background="@android:color/white"
         android:orientation="vertical"
         app:layout_constraintStart_toEndOf="@+id/relativeLayout"
         app:layout_constraintTop_toTopOf="parent">
@@ -187,7 +187,7 @@
         <GridView
             android:id="@+id/gv_calendar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="272dp"
             android:background="#ffffff"
             android:cacheColorHint="#ffffff"
             android:gravity="center"
@@ -206,14 +206,17 @@
         android:layout_width="400dp"
         android:layout_height="500dp"
         android:layout_below="@+id/ll_calendar"
-        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ll_calendar"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.393">
 
 
     </RelativeLayout>
 
-    <android.support.design.widget.BottomNavigationView
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="411dp"
         android:layout_height="wrap_content"
@@ -247,9 +250,16 @@
         android:id="@+id/textView3"
         android:layout_width="385dp"
         android:layout_height="67dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginLeft="6dp"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="6dp"
         android:text="1. Soccer - 02/07 - SH vs KR - Field 1800"
+        app:layout_constraintBottom_toTopOf="@+id/ll_calendar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/ll_calendar"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:layout_editor_absoluteX="10dp" />
+        app:layout_constraintVertical_bias="0.0" />
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

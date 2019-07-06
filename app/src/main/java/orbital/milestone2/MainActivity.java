@@ -2,8 +2,8 @@ package orbital.milestone2;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText email;
@@ -23,20 +24,21 @@ public class MainActivity extends AppCompatActivity {
     private Button Login;
     private TextView Question;
     private Button RegisterNow;
-    FirebaseAuth mAuth;
+    private FirebaseAuth mAuth;
     ProgressBar progressBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        email = (EditText)findViewById(R.id.email);
-        Password = (EditText)findViewById(R.id.cpassword);
-        Question = (TextView)findViewById(R.id.question);
-        Login = (Button)findViewById(R.id.btnsignin);
-        RegisterNow = (Button)findViewById(R.id.btnbacktohome);
-        mAuth = FirebaseAuth.getInstance();
+        email = (EditText) findViewById(R.id.email);
+        Password = (EditText) findViewById(R.id.cpassword);
+        Question = (TextView) findViewById(R.id.question);
+        Login = (Button) findViewById(R.id.btnsignin);
+        RegisterNow = (Button) findViewById(R.id.btnbacktohome);
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
+        mAuth = FirebaseAuth.getInstance();
 
 
         Login.setOnClickListener(new View.OnClickListener() {
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 mAuth.signInWithEmailAndPassword(user, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()) {
+                        if (task.isSuccessful()) {
                             Intent intent;
                             intent = new Intent(MainActivity.this, Pref1.class);
                             startActivity(intent);
@@ -72,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 
 }
 
