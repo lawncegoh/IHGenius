@@ -2,6 +2,7 @@ package orbital.milestone2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.EditText;
@@ -9,32 +10,49 @@ import android.widget.TextView;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity extends AppCompatActivity {
 
-    DatabaseHelper db;
-    private EditText ID;
+    private EditText email;
     private EditText Password;
     private Button Login;
     private TextView Question;
     private Button RegisterNow;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        db = new DatabaseHelper(this);
-        ID = (EditText)findViewById(R.id.username);
+        email = (EditText)findViewById(R.id.email);
         Password = (EditText)findViewById(R.id.cpassword);
         Question = (TextView)findViewById(R.id.question);
         Login = (Button)findViewById(R.id.btnsignin);
         RegisterNow = (Button)findViewById(R.id.btnbacktohome);
+        mAuth = FirebaseAuth.getInstance();
 
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String user = ID.getText().toString();
+                String user = email.getText().toString();
                 String pass = Password.getText().toString();
-                validate(user,pass);
+
+                mAuth.signInWithEmailAndPassword(user, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()) {
+                            Intent intent;
+                            intent = new Intent(MainActivity.this, Homepage.class);
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }
         });
 
@@ -48,19 +66,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void validate(String username, String password) {
-        if(username.equals("") || password.equals("")) {
-            Toast.makeText(getApplicationContext(), "Fields are empty", Toast.LENGTH_SHORT).show();
-        }
-        Boolean checkies = db.checkReal(username, password);
-        if(checkies==true) {
-            Intent intent2;
-            intent2 = new Intent(MainActivity.this, Pref1.class);
-            startActivity(intent2);
-        } else {
-            Toast.makeText(getApplicationContext(), "Username or password is wrong", Toast.LENGTH_SHORT).show();
-        }
-    }
 
 }
 
