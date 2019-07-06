@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.view.View;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView Question;
     private Button RegisterNow;
     FirebaseAuth mAuth;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,19 +36,24 @@ public class MainActivity extends AppCompatActivity {
         Login = (Button)findViewById(R.id.btnsignin);
         RegisterNow = (Button)findViewById(R.id.btnbacktohome);
         mAuth = FirebaseAuth.getInstance();
+        progressBar = (ProgressBar) findViewById(R.id.progressbar);
+
 
         Login.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 String user = email.getText().toString();
                 String pass = Password.getText().toString();
+
+                progressBar.setVisibility(View.VISIBLE);
 
                 mAuth.signInWithEmailAndPassword(user, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
                             Intent intent;
-                            intent = new Intent(MainActivity.this, Homepage.class);
+                            intent = new Intent(MainActivity.this, Pref1.class);
                             startActivity(intent);
                         } else {
                             Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();

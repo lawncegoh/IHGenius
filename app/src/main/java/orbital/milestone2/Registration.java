@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,6 +24,7 @@ public class Registration extends AppCompatActivity {
     private EditText cpassword;
     private Button RegisterNow;
     private Button BackToHome;
+    ProgressBar progressBar;
 
     private FirebaseAuth firebaseAuth;
 
@@ -35,6 +37,7 @@ public class Registration extends AppCompatActivity {
         cpassword = (EditText) findViewById(R.id.cpassword);
         RegisterNow = (Button) findViewById(R.id.btnreg2);
         BackToHome = (Button) findViewById(R.id.btnbacktohome);
+        progressBar = (ProgressBar) findViewById(R.id.progressbar);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -48,6 +51,8 @@ public class Registration extends AppCompatActivity {
                 String s1 = email.getText().toString();
                 String s2 = password.getText().toString();
                 String s3 = cpassword.getText().toString();
+
+                progressBar.setVisibility(View.VISIBLE);
 
                 if(s2.equals(s3)) {
                     firebaseAuth.createUserWithEmailAndPassword(s1, s2)

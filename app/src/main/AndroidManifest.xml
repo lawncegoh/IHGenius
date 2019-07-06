@@ -27,12 +27,21 @@
             android:name=".Setting"
             android:label="Setting" />
         <activity
-            android:name=".MainActivity"
-            android:label="IHGenius">
+            android:name=".Splash"
+            android:label="IHGenius" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.coderefer.androidsplashscreenexample.MAINACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>
