@@ -12,8 +12,8 @@
         android:id="@+id/btnreg"
         android:layout_width="102dp"
         android:layout_height="45dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
@@ -22,16 +22,16 @@
         app:layout_constraintBottom_toTopOf="@+id/nav_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/changeuser"
         app:layout_constraintTop_toBottomOf="@+id/btnreg3"
-        app:layout_constraintVertical_bias="0.747" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btnreg3"
         android:layout_width="102dp"
         android:layout_height="45dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
@@ -40,9 +40,9 @@
         app:layout_constraintBottom_toTopOf="@+id/nav_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/changeuser2"
         app:layout_constraintTop_toBottomOf="@+id/switch_2"
-        app:layout_constraintVertical_bias="0.747" />
+        app:layout_constraintVertical_bias="0.9" />
 
     <TextView
         android:id="@+id/hibry"
@@ -83,8 +83,8 @@
 
     <android.support.v7.widget.SwitchCompat
         android:id="@+id/switch_1"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_width="384dp"
+        android:layout_height="55dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -94,10 +94,10 @@
         android:text="Dark Mode"
         app:layout_constraintBottom_toTopOf="@+id/switch_2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hibry"
-        app:layout_constraintVertical_bias="0.961" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/changeuser"
@@ -119,8 +119,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch_2"
-        app:layout_constraintVertical_bias="0.183" />
+        app:layout_constraintTop_toBottomOf="@+id/changeuser2"
+        app:layout_constraintVertical_bias="0.007" />
 
     <EditText
         android:id="@+id/changeuser2"
@@ -143,24 +143,23 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/switch_2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.026" />
 
     <android.support.v7.widget.SwitchCompat
         android:id="@+id/switch_2"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_width="385dp"
+        android:layout_height="55dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="72dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="416dp"
         android:text="Sync to Phone Calendar"
         app:layout_constraintBottom_toTopOf="@+id/nav_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hibry"
-        app:layout_constraintVertical_bias="0.026" />
+        app:layout_constraintVertical_bias="1.0" />
 
 </android.support.constraint.ConstraintLayout>
