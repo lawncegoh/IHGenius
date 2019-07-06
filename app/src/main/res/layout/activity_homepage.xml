@@ -32,7 +32,7 @@
     <LinearLayout
         android:id="@+id/ll_calendar"
         android:layout_width="match_parent"
-        android:layout_height="match_"
+        android:layout_height="match_parent"
         android:layout_margin="4dp"
         android:background="#343434"
         android:orientation="vertical"

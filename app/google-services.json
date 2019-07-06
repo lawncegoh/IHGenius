@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "201282103721",
+    "firebase_url": "https://ihgenius-5e66d.firebaseio.com",
+    "project_id": "ihgenius-5e66d",
+    "storage_bucket": "ihgenius-5e66d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:201282103721:android:ded7653fdc392574",
+        "android_client_info": {
+          "package_name": "orbital.milestone2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "201282103721-h28bh46uog6l49jnj0c4i2u6ldtb84pg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoJ7np6ZJG_VDmDEGtlw02Oa3yk0RFt6o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "201282103721-h28bh46uog6l49jnj0c4i2u6ldtb84pg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
