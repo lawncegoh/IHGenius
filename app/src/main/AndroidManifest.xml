@@ -24,6 +24,9 @@
             android:name=".Information"
             android:label="Information" />
         <activity
+            android:name=".Rankings"
+            android:label="Rankings" />
+        <activity
             android:name=".Setting"
             android:label="Setting" />
         <activity
@@ -44,6 +47,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name="com.anychart.sample.charts.ColumnChartActivity" />
     </application>
 
 </manifest>

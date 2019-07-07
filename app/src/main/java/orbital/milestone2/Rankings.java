@@ -4,45 +4,62 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.data.BarData;
-import com.github.mikephil.charting.data.BarDataSet;
-import com.github.mikephil.charting.data.BarEntry;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.chart.common.dataentry.DataEntry;
+import com.anychart.chart.common.dataentry.ValueDataEntry;
+import com.anychart.charts.Cartesian;
+import com.anychart.core.cartesian.series.Column;
+import com.anychart.enums.Anchor;
+import com.anychart.enums.HoverMode;
+import com.anychart.enums.Position;
+import com.anychart.enums.TooltipPositionMode;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Rankings extends AppCompatActivity {
-    BarChart barChart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rankings);
 
-        barChart = (BarChart) findViewById(R.id.bargraph);
+        AnyChartView anyChartView = findViewById(R.id.any_chart_view);
 
-        ArrayList<BarEntry> barEntries = new ArrayList<>();
-        barEntries.add(new BarEntry(44f,0));
-        barEntries.add(new BarEntry(55f,1));
-        barEntries.add(new BarEntry(80f,2));
-        barEntries.add(new BarEntry(60f,3));
-        barEntries.add(new BarEntry(100f,4));
-        barEntries.add(new BarEntry(20f,5));
-        BarDataSet barDataSet = new BarDataSet(barEntries, "Score");
+        Cartesian cartesian = AnyChart.column();
 
-        ArrayList<String> Halls = new ArrayList<>();
+        List<DataEntry> data = new ArrayList<>();
+        data.add(new ValueDataEntry("KR", 100));
+        data.add(new ValueDataEntry("SH", 99));
+        data.add(new ValueDataEntry("EH", 10));
+        data.add(new ValueDataEntry("TH", 85));
+        data.add(new ValueDataEntry("PGP", 50));
+        data.add(new ValueDataEntry("RH", 49));
 
-        Halls.add("Kent Ridge");
-        Halls.add("Sheares");
-        Halls.add("Temasek");
-        Halls.add("PGP");
-        Halls.add("Raffles");
-        Halls.add("Eusoff");
+        Column column = cartesian.column(data);
 
-        BarData theData = new BarData(barDataSet);
-        barChart.setData(theData);
+        column.tooltip()
+                .titleFormat("Score:")
+                .position(Position.CENTER_BOTTOM)
+                .anchor(Anchor.CENTER_BOTTOM);
+                //.offsetX(0d)
+                //.offsetY(5d);
+                //.format("${%Value}{groupsSeparator: }");
+
+        cartesian.animation(true);
+        cartesian.title("IHG Standings as of 070719");
+
+        cartesian.yScale().minimum(0d);
+
+        //cartesian.yAxis(0).labels().format("${%Value}{groupsSeparator: }");
+
+        cartesian.tooltip().positionMode(TooltipPositionMode.POINT);
+        cartesian.interactivity().hoverMode(HoverMode.BY_X);
+
+        cartesian.xAxis(0).title("Hall");
+        cartesian.yAxis(0).title("Total Points");
+
+        anyChartView.setChart(cartesian);
     }
-
 }
