@@ -53,6 +53,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="12dp"
         android:text="Rankings"
+        android:background="@drawable/button"
+        android:textColor="#ffffff"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hibry" />
@@ -65,6 +67,8 @@
         android:layout_marginLeft="36dp"
         android:layout_marginTop="12dp"
         android:text="Match Scores"
+        android:background="@drawable/button"
+        android:textColor="#ffffff"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toEndOf="@+id/rankings"
         app:layout_constraintTop_toBottomOf="@+id/hibry" />
@@ -77,6 +81,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="48dp"
         android:text="Rules"
+        android:background="@drawable/button"
+        android:textColor="#ffffff"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rankings" />
@@ -89,6 +95,8 @@
         android:layout_marginLeft="36dp"
         android:layout_marginTop="48dp"
         android:text="Match Videos"
+        android:background="@drawable/button"
+        android:textColor="#ffffff"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toEndOf="@+id/button3"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
@@ -101,6 +109,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="48dp"
         android:text="Forms"
+        android:background="@drawable/button"
+        android:textColor="#ffffff"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3" />
@@ -113,6 +123,8 @@
         android:layout_marginLeft="36dp"
         android:layout_marginTop="48dp"
         android:text="Photo Gallery"
+        android:background="@drawable/button"
+        android:textColor="#ffffff"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toEndOf="@+id/button5"
         app:layout_constraintTop_toBottomOf="@+id/button4" />
