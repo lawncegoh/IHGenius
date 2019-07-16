@@ -12,12 +12,14 @@ import android.widget.Button;
 public class Information extends AppCompatActivity {
 
     private Button Ranks;
+    private Button Scores;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_information);
         Ranks = (Button) findViewById(R.id.rankings);
+        Scores = (Button) findViewById(R.id.button2);
         BottomNavigationView navView = findViewById(R.id.nav_view);
 
         navView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -49,6 +51,14 @@ public class Information extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent3 = new Intent(Information.this, Rankings.class);
                 startActivity(intent3);
+            }
+        });
+
+        Scores.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent4 = new Intent(Information.this, Scores.class);
+                startActivity(intent4);
             }
         });
     }
