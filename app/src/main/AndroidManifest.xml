@@ -30,6 +30,9 @@
             android:name=".Setting"
             android:label="Setting" />
         <activity
+            android:name=".Scores"
+            android:label="Scores" />
+        <activity
             android:name=".Splash"
             android:label="IHGenius" >
             <intent-filter>
