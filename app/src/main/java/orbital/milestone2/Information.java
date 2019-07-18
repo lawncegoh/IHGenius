@@ -19,7 +19,7 @@ public class Information extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_information);
         Ranks = (Button) findViewById(R.id.rankings);
-        Scores = (Button) findViewById(R.id.button2);
+        Scores = (Button) findViewById(R.id.score);
         BottomNavigationView navView = findViewById(R.id.nav_view);
 
         navView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -57,7 +57,7 @@ public class Information extends AppCompatActivity {
         Scores.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent4 = new Intent(Information.this, Scores.class);
+                Intent intent4 = new Intent(Information.this, Score.class);
                 startActivity(intent4);
             }
         });

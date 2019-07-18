@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import java.util.ArrayList;
@@ -21,12 +22,11 @@ public class Scores extends AppCompatActivity {
         EditText theFilter = (EditText) findViewById(R.id.searchFilter);
 
         ArrayList<String> names = new ArrayList<>();
-        names.add("Mitch");
-        names.add("Blake");
-        names.add("Shelly");
-        names.add("Jess");
-        names.add("Steve");
-        names.add("Mohammed");
+        names.add("Handball - KR v SH 24th July");
+        names.add("Football - TH v SH 25th July");
+        names.add("Floorball - RH v EH 26th July");
+        names.add("Sepak Takraw - KE v RH 27th July");
+        names.add("Basketball - SH v KR 28th July");
 
         adapter = new ArrayAdapter(this, R.layout.list_item_layout, names);
         list.setAdapter(adapter);
@@ -44,8 +44,8 @@ public class Scores extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-
             }
         });
     }
+
 }
