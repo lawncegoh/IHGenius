@@ -15,7 +15,7 @@
             android:name=".Homepage"
             android:label="Homepage"></activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".Pref1"
             android:label="Pref1" />
         <activity
             android:name=".Registration"
@@ -33,11 +33,11 @@
             android:name=".Scores"
             android:label="Scores" />
         <activity
-            android:name=".Score"
-            android:label="Score" />
+            android:name=".AdminHome"
+            android:label="AdminHome" />
         <activity
-            android:name=".IndividualActivity"
-            android:label="IndividualActivity"/>
+            android:name=".UploadActivity"
+            android:label="UploadActivity"/>
         <activity
             android:name=".Splash"
             android:label="IHGenius">
@@ -48,7 +48,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Pref1"
+            android:name=".MainActivity"
             android:label="IHGenius" >
             <intent-filter>
                 <action android:name="com.coderefer.androidsplashscreenexample.MAINACTIVITY" />

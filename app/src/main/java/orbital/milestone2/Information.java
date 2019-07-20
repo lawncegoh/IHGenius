@@ -13,6 +13,7 @@ public class Information extends AppCompatActivity {
 
     private Button Ranks;
     private Button Scores;
+    private Button Gallery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,7 @@ public class Information extends AppCompatActivity {
         setContentView(R.layout.activity_information);
         Ranks = (Button) findViewById(R.id.rankings);
         Scores = (Button) findViewById(R.id.score);
+        Gallery = (Button) findViewById(R.id.photobtn);
         BottomNavigationView navView = findViewById(R.id.nav_view);
 
         navView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -57,10 +59,17 @@ public class Information extends AppCompatActivity {
         Scores.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent4 = new Intent(Information.this, Score.class);
+                Intent intent4 = new Intent(Information.this, Scores.class);
                 startActivity(intent4);
             }
         });
+
+        Gallery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
+
     }
 
 

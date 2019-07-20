@@ -32,12 +32,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        email = (EditText) findViewById(R.id.email);
-        Password = (EditText) findViewById(R.id.cpassword);
-        Question = (TextView) findViewById(R.id.question);
-        Login = (Button) findViewById(R.id.btnsignin);
-        RegisterNow = (Button) findViewById(R.id.btnbacktohome);
-        progressBar = (ProgressBar) findViewById(R.id.progressbar);
+        email = findViewById(R.id.email);
+        Password = findViewById(R.id.cpassword);
+        Question =  findViewById(R.id.question);
+        Login =  findViewById(R.id.btnsignin);
+        RegisterNow = findViewById(R.id.btnbacktohome);
+        progressBar = findViewById(R.id.progressbar);
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -50,18 +50,25 @@ public class MainActivity extends AppCompatActivity {
 
                 progressBar.setVisibility(View.VISIBLE);
 
-                mAuth.signInWithEmailAndPassword(user, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Intent intent;
-                            intent = new Intent(MainActivity.this, Pref1.class);
-                            startActivity(intent);
-                        } else {
-                            Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                if (user.equals("admin")) {
+                    System.out.println("moving");
+                    Intent intent1 = new Intent(MainActivity.this, AdminHome.class);
+                    startActivity(intent1);
+                } else {
+
+                    mAuth.signInWithEmailAndPassword(user, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Intent intent;
+                                intent = new Intent(MainActivity.this, Pref1.class);
+                                startActivity(intent);
+                            } else {
+                                Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    }
-                });
+                    });
+                }
             }
         });
 

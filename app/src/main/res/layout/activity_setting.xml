@@ -13,40 +13,36 @@
         android:layout_width="102dp"
         android:layout_height="45dp"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@drawable/button"
-        android:textColor="#ffffff"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/button"
         android:text="Confirm"
+        android:textColor="#ffffff"
         app:layout_constraintBottom_toTopOf="@+id/nav_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/changeuser"
-        app:layout_constraintTop_toBottomOf="@+id/btnreg3"
-        app:layout_constraintVertical_bias="0.036" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/changeuser"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnreg3"
         android:layout_width="102dp"
         android:layout_height="45dp"
-        android:background="@drawable/button"
-        android:textColor="#ffffff"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/button"
         android:text="Confirm"
-        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toTopOf="@+id/changeuser"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/changeuser2"
-        app:layout_constraintTop_toBottomOf="@+id/switch_2"
-        app:layout_constraintVertical_bias="0.07" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/changeuser2"
+        app:layout_constraintVertical_bias="0.205" />
 
     <TextView
         android:id="@+id/hibry"
@@ -110,10 +106,8 @@
         android:layout_height="52dp"
 
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:hint="New Password"
         android:inputType="text"
@@ -121,10 +115,10 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintBottom_toTopOf="@+id/nav_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/changeuser2"
-        app:layout_constraintVertical_bias="0.007" />
+        app:layout_constraintVertical_bias="0.296" />
 
     <EditText
         android:id="@+id/changeuser2"
@@ -133,10 +127,8 @@
         android:layout_height="52dp"
 
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:hint="New Username"
         android:inputType="text"
@@ -144,10 +136,10 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintBottom_toTopOf="@+id/nav_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/switch_1"
-        app:layout_constraintVertical_bias="0.304" />
+        app:layout_constraintVertical_bias="0.287" />
 
     <androidx.appcompat.widget.SwitchCompat
         android:id="@+id/switch_2"
