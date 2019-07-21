@@ -67,9 +67,15 @@ public class Information extends AppCompatActivity {
         Gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                openImagesActivity();
             }
         });
 
+    }
+
+    private void openImagesActivity() {
+        Intent intent = new Intent(this, ImagesActivity.class);
+        startActivity(intent);
     }
 
 

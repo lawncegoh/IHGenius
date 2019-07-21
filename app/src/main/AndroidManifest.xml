@@ -2,8 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="orbital.milestone2">
 
-
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,9 +10,10 @@
         android:roundIcon="@drawable/orbital_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ImagesActivity"></activity>
         <activity
             android:name=".Homepage"
-            android:label="Homepage"></activity>
+            android:label="Homepage" />
         <activity
             android:name=".Pref1"
             android:label="Pref1" />
@@ -37,7 +37,7 @@
             android:label="AdminHome" />
         <activity
             android:name=".UploadActivity"
-            android:label="UploadActivity"/>
+            android:label="UploadActivity" />
         <activity
             android:name=".Splash"
             android:label="IHGenius">
@@ -49,7 +49,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="IHGenius" >
+            android:label="IHGenius">
             <intent-filter>
                 <action android:name="com.coderefer.androidsplashscreenexample.MAINACTIVITY" />
 
