@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -23,6 +25,7 @@ public class ImagesActivity extends AppCompatActivity {
     private ImageAdapter mAdapter;
 
     private DatabaseReference mDatabaseRef;
+    private ProgressBar mProgressCircle;
     private List<Upload> mUploads;
 
     @Override
@@ -37,27 +40,37 @@ public class ImagesActivity extends AppCompatActivity {
         mAdapter = new ImageAdapter(ImagesActivity.this, mUploads);
         mRecyclerView.setAdapter(mAdapter);
 
-        mUploads = new ArrayList<>();
+        mProgressCircle = findViewById(R.id.progress_circle);
 
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("Image Uploads");
 
-        mAdapter.notifyDataSetChanged();
-
         mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    Upload upload = postSnapshot.getValue(Upload.class);
-                    mUploads.add(upload);
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    mUploads = new ArrayList<>();
+                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                        Upload upload = postSnapshot.getValue(Upload.class);
+                        mUploads.add(upload);
+                        mAdapter.notifyDataSetChanged();
+                    }
+                } else {
+                    System.out.println("empty");
                 }
+
+                if (mAdapter != null) {
+                    mAdapter.notifyDataSetChanged();
+                }
+
                 mAdapter = new ImageAdapter(ImagesActivity.this, mUploads);
                 mRecyclerView.setAdapter(mAdapter);
-
+                mProgressCircle.setVisibility(View.INVISIBLE);
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+            public void onCancelled(DatabaseError databaseError) {
                 Toast.makeText(ImagesActivity.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                mProgressCircle.setVisibility(View.INVISIBLE);
             }
         });
     }

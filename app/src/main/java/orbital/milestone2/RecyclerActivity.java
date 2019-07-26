@@ -1,7 +1,6 @@
 package orbital.milestone2;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -14,12 +13,10 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,12 +31,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
-
-import orbital.milestone2.Homepage;
-import orbital.milestone2.Information;
-import orbital.milestone2.MainActivity;
-import orbital.milestone2.R;
-import orbital.milestone2.Setting;
 
 public class RecyclerActivity extends AppCompatActivity {
 
@@ -166,7 +157,7 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = (View) LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.activity_indiv, parent, false);
+                .inflate(R.layout.item_indiv, parent, false);
         MyViewHolder vh = new MyViewHolder(v);
         return vh;
     }

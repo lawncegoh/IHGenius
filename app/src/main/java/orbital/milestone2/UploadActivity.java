@@ -98,14 +98,19 @@ public class UploadActivity extends AppCompatActivity{
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            Handler handler = new Handler();
-                            handler.postDelayed(new Runnable() {
+                            fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
-                                public void run() {
-                                    mProgressBar.setProgress(0);
+                                public void onSuccess(Uri uri) {
+                                    Handler handler = new Handler();
+                                    handler.postDelayed(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            mProgressBar.setProgress(0);
+                                        }
+                                    }, 5000);
                                 }
-                            }, 5000);
-                            Toast.makeText(UploadActivity.this, "Upload successful", Toast.LENGTH_LONG).show();
+                            });
+
                             Upload upload = new Upload(mEditTextFileName.getText().toString().trim(), mImageUri.toString());// <--------    get uri for ImageUrl
                             String uploadId = mDatabaseRef.push().getKey();
                             mDatabaseRef.child(uploadId).setValue(upload);
@@ -139,7 +144,7 @@ public class UploadActivity extends AppCompatActivity{
                 && data !=null && data.getData() != null) {
             mImageUri = data.getData();
 
-            Picasso.get().load(mImageUri).fit().into(mImageView);
+            Picasso.get().load(mImageUri).into(mImageView);
         }
     }
 }
