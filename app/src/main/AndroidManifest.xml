@@ -36,6 +36,12 @@
             android:name=".AdminHome"
             android:label="AdminHome" />
         <activity
+            android:name=".UpdateScoreActivity"
+            android:label="updatescore"/>
+        <activity
+            android:name=".RecyclerActivity"
+            android:label="userviewscore"/>
+        <activity
             android:name=".UploadActivity"
             android:label="UploadActivity" />
         <activity

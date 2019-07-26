@@ -41,6 +41,8 @@ public class ImagesActivity extends AppCompatActivity {
 
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("Image Uploads");
 
+        mAdapter.notifyDataSetChanged();
+
         mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -50,6 +52,7 @@ public class ImagesActivity extends AppCompatActivity {
                 }
                 mAdapter = new ImageAdapter(ImagesActivity.this, mUploads);
                 mRecyclerView.setAdapter(mAdapter);
+
             }
 
             @Override
