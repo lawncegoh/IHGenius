@@ -28,6 +28,7 @@ public class Setting extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         BottomNavigationView navView = findViewById(R.id.nav_view);
+        mAuth = FirebaseAuth.getInstance();
 
         navView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -101,7 +102,7 @@ public class Setting extends AppCompatActivity {
 
     private void logOut () {
         mAuth.signOut();
-        Intent i = new Intent(Setting.this, MainActivity.class);
+        Intent i = new Intent(Setting.this, LoginActivity.class);
         startActivity(i);
     }
 

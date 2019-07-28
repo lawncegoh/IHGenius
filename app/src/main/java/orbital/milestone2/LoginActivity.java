@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     private EditText email;
     private EditText Password;
@@ -31,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
         checkLoggedIn();
+
+        super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
         email = findViewById(R.id.email);
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (user.equals("admin")) {
                     System.out.println("moving");
-                    Intent intent1 = new Intent(MainActivity.this, AdminHome.class);
+                    Intent intent1 = new Intent(LoginActivity.this, AdminHome.class);
                     startActivity(intent1);
                 } else {
 
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 Intent intent;
-                                intent = new Intent(MainActivity.this, Pref1.class);
+                                intent = new Intent(LoginActivity.this, Pref1.class);
                                 startActivity(intent);
                             } else {
                                 Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent;
-                intent = new Intent(MainActivity.this, Registration.class);
+                intent = new Intent(LoginActivity.this, Registration.class);
                 startActivity(intent);
             }
         });
@@ -90,7 +90,8 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         if (user != null) {
-            Intent i = new Intent(MainActivity.this, Homepage.class);
+            Intent i = new Intent(LoginActivity.this, Homepage.class);
+            startActivity(i);
         }
     }
 

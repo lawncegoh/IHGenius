@@ -24,6 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:paddingTop="20dp"
             android:text="Bacon ipsum dolor amet strip steak chicken tongue tenderloin, capicola ham buffalo. Pork chop swine pork loin strip steak venison, doner burgdoggen. Hamburger prosciutto sirloin, drumstick kevin bresaola turkey corned beef beef ribs. Leberkas landjaeger beef prosciutto shank boudin sausage capicola pork chop ribeye drumstick filet mignon pork. Bacon meatball ground round bresaola brisket flank venison shank ball tip alcatra t-bone turkey short loin shoulder.
 
 Kielbasa pig porchetta tongue kevin. Short loin t-bone hamburger swine alcatra shank. Kevin andouille boudin filet mignon. Jowl shankle pastrami burgdoggen tongue chicken turducken pig frankfurter t-bone ground round short loin beef. Beef ground round sausage prosciutto. Meatball swine venison, salami chicken bresaola rump landjaeger shank turkey pork loin burgdoggen. Burgdoggen buffalo shankle cow pork.
@@ -43,9 +44,10 @@ Does your lorem ipsum text long for something a little meatier? Give our generat
         android:layout_height="205dp"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
+        android:paddingTop="20dp"
         app:layout_constraintBottom_toTopOf="@+id/rulesscroll"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.037"
+        app:layout_constraintHorizontal_bias="0.157"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.484"
