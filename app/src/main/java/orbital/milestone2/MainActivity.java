@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -31,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        checkLoggedIn();
+
         setContentView(R.layout.activity_main);
         email = findViewById(R.id.email);
         Password = findViewById(R.id.cpassword);
@@ -39,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
         RegisterNow = findViewById(R.id.btnbacktohome);
         progressBar = findViewById(R.id.progressbar);
         mAuth = FirebaseAuth.getInstance();
-
 
         Login.setOnClickListener(new View.OnClickListener() {
 
@@ -80,6 +83,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void checkLoggedIn() {
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user != null) {
+            Intent i = new Intent(MainActivity.this, Homepage.class);
+        }
     }
 
 }

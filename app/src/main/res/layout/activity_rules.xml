@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/rulesscroll"
+        android:layout_width="386dp"
+        android:layout_height="467dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="33dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3">
+
+        <TextView
+            android:id="@+id/ihgrules"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:text="Bacon ipsum dolor amet strip steak chicken tongue tenderloin, capicola ham buffalo. Pork chop swine pork loin strip steak venison, doner burgdoggen. Hamburger prosciutto sirloin, drumstick kevin bresaola turkey corned beef beef ribs. Leberkas landjaeger beef prosciutto shank boudin sausage capicola pork chop ribeye drumstick filet mignon pork. Bacon meatball ground round bresaola brisket flank venison shank ball tip alcatra t-bone turkey short loin shoulder.
+
+Kielbasa pig porchetta tongue kevin. Short loin t-bone hamburger swine alcatra shank. Kevin andouille boudin filet mignon. Jowl shankle pastrami burgdoggen tongue chicken turducken pig frankfurter t-bone ground round short loin beef. Beef ground round sausage prosciutto. Meatball swine venison, salami chicken bresaola rump landjaeger shank turkey pork loin burgdoggen. Burgdoggen buffalo shankle cow pork.
+
+Bresaola turkey corned beef, ham leberkas beef pork shank. Capicola andouille tri-tip jowl, salami filet mignon short loin tongue. Tenderloin t-bone chicken swine, alcatra ribeye short loin andouille corned beef sausage. Prosciutto kielbasa doner pork loin burgdoggen capicola jerky, leberkas t-bone turducken ribeye pork ham.
+
+Ham hock biltong bacon burgdoggen ham sirloin. Burgdoggen corned beef alcatra ham hock ribeye tenderloin hamburger shankle. Sausage tail pork chop ribeye leberkas meatloaf tri-tip shankle. Meatball swine brisket, shoulder beef meatloaf sirloin porchetta.
+
+Andouille alcatra bresaola pork chop doner landjaeger pig short loin rump. Landjaeger turducken rump cow. Tail bresaola landjaeger sirloin tenderloin pork chop cow. Ham hock turkey shank landjaeger beef ribs. Ham corned beef bacon t-bone porchetta pork chop cupim capicola strip steak turkey.
+
+Does your lorem ipsum text long for something a little meatier? Give our generator a try… it’s tasty!" />
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="384dp"
+        android:layout_height="205dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/rulesscroll"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.037"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.484"
+        app:srcCompat="@drawable/rulesphoto" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

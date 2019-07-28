@@ -5,16 +5,21 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 public class Setting extends AppCompatActivity {
 
     SwitchCompat switch_1, switch_2;
 
     boolean stateSwitch1, stateSwitch2;
+    private FirebaseAuth mAuth;
+    private Button signOut;
 
     SharedPreferences prefs;
 
@@ -54,8 +59,8 @@ public class Setting extends AppCompatActivity {
         stateSwitch1 = prefs.getBoolean("switch1", false);
         stateSwitch1 = prefs.getBoolean("switch2", false);
 
-        switch_1 = (SwitchCompat) findViewById(R.id.switch_1);
-        switch_2 = (SwitchCompat) findViewById(R.id.switch_2);
+        switch_1 = findViewById(R.id.switch_1);
+        switch_2 = findViewById(R.id.switch_2);
 
         switch_1.setChecked(stateSwitch1);
         switch_2.setChecked(stateSwitch2);
@@ -82,8 +87,22 @@ public class Setting extends AppCompatActivity {
             }
         });
 
+        signOut = findViewById(R.id.btnsignout);
+
+        signOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logOut();
+            }
+        });
 
 
+    }
+
+    private void logOut () {
+        mAuth.signOut();
+        Intent i = new Intent(Setting.this, MainActivity.class);
+        startActivity(i);
     }
 
 }

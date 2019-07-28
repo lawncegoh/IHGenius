@@ -22,7 +22,9 @@
             android:label="Registration" />
         <activity
             android:name=".Information"
-            android:label="Information" />
+            android:label="Information" >
+
+        </activity>
         <activity
             android:name=".Rankings"
             android:label="Rankings" />
@@ -35,6 +37,9 @@
         <activity
             android:name=".AdminHome"
             android:label="AdminHome" />
+        <activity
+            android:name=".RulesActivity"
+            android:label="RulesActivity" />
         <activity
             android:name=".UpdateScoreActivity"
             android:label="updatescore"/>

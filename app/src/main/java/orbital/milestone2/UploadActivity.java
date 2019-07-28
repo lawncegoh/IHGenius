@@ -18,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -26,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
@@ -40,6 +42,7 @@ public class UploadActivity extends AppCompatActivity{
     private ImageView mImageView;
     private ProgressBar mProgressBar;
 
+    private StorageTask mUploadTask;
     private Uri mImageUri;
 
     private StorageReference mStorageRef;
@@ -91,35 +94,44 @@ public class UploadActivity extends AppCompatActivity{
 
     private void uploadFile() {
         if (mImageUri != null) {
+
             fileReference = mStorageRef.child(System.currentTimeMillis()
             + "." + getFileExtension(mImageUri));
 
-            fileReference.putFile(mImageUri)
+
+            mUploadTask = fileReference.putFile(mImageUri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+
+                            final Task result = fileReference.child(taskSnapshot.getMetadata().toString()).getDownloadUrl();
+//                            final Task<Uri> result = taskSnapshot.getMetadata().getReference().getDownloadUrl();
+                            Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
                                 @Override
-                                public void onSuccess(Uri uri) {
-                                    Handler handler = new Handler();
-                                    handler.postDelayed(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            mProgressBar.setProgress(0);
-                                        }
-                                    }, 5000);
+                                public void run() {
+                                    mProgressBar.setProgress(0);
+                                }
+                            }, 500);
+                            result.addOnCompleteListener(new OnCompleteListener<Uri>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Uri> task) {
+                                    Uri uri = task.getResult();
+                                    String url = result.getResult().toString();
+                                    Upload upload = new Upload(mEditTextFileName.getText().toString().trim(), url);
+                                    String uploadID = mDatabaseRef.push().getKey();
+                                    mDatabaseRef.child(uploadID).setValue(upload);
+                                    Toast.makeText(UploadActivity.this, "Upload successfully", Toast.LENGTH_LONG).show();
                                 }
                             });
 
-                            Upload upload = new Upload(mEditTextFileName.getText().toString().trim(), mImageUri.toString());// <--------    get uri for ImageUrl
-                            String uploadId = mDatabaseRef.push().getKey();
-                            mDatabaseRef.child(uploadId).setValue(upload);
+
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(UploadActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(UploadActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
                         }
                     })
                     .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
@@ -129,6 +141,43 @@ public class UploadActivity extends AppCompatActivity{
                             mProgressBar.setProgress((int) progress);
                         }
                     });
+//
+//
+//
+//                    fileReference.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+//                        @Override
+//                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+//                            fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+//                                @Override
+//                                public void onSuccess(Uri uri) {
+//                                    Handler handler = new Handler();
+//                                    handler.postDelayed(new Runnable() {
+//                                        @Override
+//                                        public void run() {
+//                                            mProgressBar.setProgress(0);
+//                                        }
+//                                    }, 5000);
+//                                }
+//                            });
+//
+//                            Upload upload = new Upload(mEditTextFileName.getText().toString().trim(), mImageUri.toString());// <--------    get uri for ImageUrl
+//                            String uploadId = mDatabaseRef.push().getKey();
+//                            mDatabaseRef.child(uploadId).setValue(upload);
+//                        }
+//                    })
+//                    .addOnFailureListener(new OnFailureListener() {
+//                        @Override
+//                        public void onFailure(@NonNull Exception e) {
+//                            Toast.makeText(UploadActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+//                        }
+//                    })
+//                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+//                        @Override
+//                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+//                            double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
+//                            mProgressBar.setProgress((int) progress);
+//                        }
+//                    });
         }
         else {
             Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
