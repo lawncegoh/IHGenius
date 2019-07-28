@@ -27,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button RegisterNow;
     private FirebaseAuth mAuth;
     ProgressBar progressBar;
+    private View fadeOut;
 
 
     @Override
@@ -43,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         RegisterNow = findViewById(R.id.btnbacktohome);
         progressBar = findViewById(R.id.progressbar);
         mAuth = FirebaseAuth.getInstance();
+        fadeOut = findViewById(R.id.fadeBackground);
 
         Login.setOnClickListener(new View.OnClickListener() {
 
@@ -51,10 +53,12 @@ public class LoginActivity extends AppCompatActivity {
                 String user = email.getText().toString();
                 String pass = Password.getText().toString();
 
+                fadeOut.setVisibility(View.VISIBLE);
+                fadeOut.animate().alpha(0.5f);
+
                 progressBar.setVisibility(View.VISIBLE);
 
                 if (user.equals("admin")) {
-                    System.out.println("moving");
                     Intent intent1 = new Intent(LoginActivity.this, AdminHome.class);
                     startActivity(intent1);
                 } else {
@@ -68,6 +72,9 @@ public class LoginActivity extends AppCompatActivity {
                                 startActivity(intent);
                             } else {
                                 Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                fadeOut.setVisibility(View.GONE);
+                                fadeOut.setAlpha(0f);
+                                progressBar.setVisibility(View.GONE);
                             }
                         }
                     });

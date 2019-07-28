@@ -20,6 +20,7 @@ public class Setting extends AppCompatActivity {
     boolean stateSwitch1, stateSwitch2;
     private FirebaseAuth mAuth;
     private Button signOut;
+    private View fadeOut;
 
     SharedPreferences prefs;
 
@@ -96,6 +97,8 @@ public class Setting extends AppCompatActivity {
                 logOut();
             }
         });
+
+        fadeOut = findViewById(R.id.fadeBackground);
 
 
     }
