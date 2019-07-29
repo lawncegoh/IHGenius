@@ -60,12 +60,15 @@ public class Registration extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
                                         Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_SHORT).show();
+                                        progressBar.setVisibility(View.GONE);
                                     } else {
 
                                         if(task.getException() instanceof FirebaseAuthUserCollisionException) {
                                             Toast.makeText(getApplicationContext(), "You are already registered", Toast.LENGTH_SHORT).show();
+                                            progressBar.setVisibility(View.GONE);
                                         } else {
                                             Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                            progressBar.setVisibility(View.GONE);
                                         }
                                     }
                                 }

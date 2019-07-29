@@ -15,16 +15,14 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="224dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/button"
         android:text="Sign Out"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toTopOf="@+id/nav_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.522"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch_2"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/hibry" />
 
     <TextView
         android:id="@+id/hibry"
@@ -39,11 +37,11 @@
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.028" />
+        app:layout_constraintVertical_bias="0.098" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
@@ -61,43 +59,15 @@
         app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/bottom_nav_menu" />
 
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/switch_1"
-        android:layout_width="384dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Dark Mode"
-        app:layout_constraintBottom_toTopOf="@+id/switch_2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.272"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hibry"
-        app:layout_constraintVertical_bias="0.0" />
-
     <View
         android:id="@+id/fadeBackground"
-        android:elevation="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0"
-        android:visibility="gone"
         android:background="@android:color/black"
-        android:layerType="hardware"/>
+        android:elevation="5dp"
+        android:layerType="hardware"
+        android:visibility="gone" />
 
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/switch_2"
-        android:layout_width="385dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="Sync to Phone Calendar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch_1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
